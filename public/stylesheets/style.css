@@ -1,8 +1,43 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+}
+#navBar{
+  display: flex;
+  padding-bottom: 2px;
+  justify-content: space-between;
+  background-color: #264f73;
+  padding-right: 10px;
+  font-size: 14px;
+}
+#textNavb{
+  color: white;
+}
+#navBar > ul{
+  display: flex;
+  font-size: 23px;
+  padding-top: 8px;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items:flex-end;
+  width: 35%;
+  list-style: none;
 }
 
+.dm {
+  background-image: url(../images/pexels-edward-eyer-1049626.jpg);
+  background-size: 100%;
+  height: 900px;  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: beige;
+}
+
+#txt1df {
+  font-size: 64px;
+}
 a {
-  color: #00B7FF;
+  color: white;
 }
