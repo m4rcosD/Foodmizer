@@ -5,7 +5,7 @@
 - Postman --> test data from API
 - Axios --> to fetch data from API and conect to our server
 - Express.Js --> to create a server side project
-:aperto_de_mão: ###Contributors
+###Contributors
 This project is built by two creative mind that go by the alias's of:
 - @Marcos Paulo Dias
 - @Rodrigo Ribeiro
@@ -100,21 +100,24 @@ User model
 ```
 username: String
 password: String
+favourite recepies: ?? goes on user models? since its stored on the user profile /// HELP
 ```
 
 recipe model
 
 ```
-owner: ObjectId<User>
-name: String
-description: String
-date: Date
-location: String
-attendees: [ObjectId<User>]
+Recipeid: ObjectId<User>
+Title: String
+Description: String
+Steps: String
+Ingredients: String , Numbers
+Cusine type: String
+Duration: Number
+Image: img     // IMage type exists ?? /////HELP
 ``` 
 
-## Links
+###Contributors
 
-### Trello
-
-[Link to your trello board](https://trello.com) or picture of your physical board
+This project is built by two creative mind that go by the alias's of:
+- @Marcos Paulo Dias
+- @Rodrigo Ribeiro
