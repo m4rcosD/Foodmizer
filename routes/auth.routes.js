@@ -13,7 +13,6 @@ router.post('/signup', (req, res, next) => {
     const {email, password} = req.body
     
     // VALIDATIONS
-    
   
     if (email == '' || password == '') {
         //throw error
