@@ -37,6 +37,8 @@
 
 #txt1df {
   font-size: 64px;
+  opacity: 1;
+  color: #264f73;
 }
 a {
   color: white;
