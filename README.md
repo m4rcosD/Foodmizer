@@ -1,5 +1,5 @@
 
-:computador: ###What tools we used
+###What tools we used
 - We used the Spoonacular API and got a licence key for this project
 - Mongo DB --> for database
 - Postman --> test data from API
@@ -114,7 +114,13 @@ Ingredients: String , Numbers
 Cusine type: String
 Duration: Number
 Image: img     // IMage type exists ?? /////HELP
-``` 
+ ```
+ ###What tools we used
+- We used the Spoonacular API and got a licence key for this project
+- Mongo DB --> for database
+- Postman --> test data from API
+- Axios --> to fetch data from API and conect to our server
+- Express.Js --> to create a server side project
 
 ###Contributors
 
