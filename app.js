@@ -9,6 +9,10 @@ require('./db');
 // https://www.npmjs.com/package/express
 const express = require('express');
 
+//api
+
+//require axios
+
 // Handles the handlebars
 // https://www.npmjs.com/package/hbs
 const hbs = require('hbs');
@@ -47,6 +51,9 @@ app.use('/', index);
 
 const authRoutes = require('./routes/auth.routes')
 app.use("/", authRoutes);
+
+const recipes = require('./routes/recipes.routes')
+app.use("/", recipes);
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require('./error-handling')(app);

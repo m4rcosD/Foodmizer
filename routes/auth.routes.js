@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const UserModel = require('../models/User.model')
 const bcrypt = require('bcryptjs');
+//things from html 
 
 // Handles GET requests to /signin and shows a form
 router.get('/signin', (req, res, next) => {
@@ -84,9 +85,6 @@ router.get('/profile', checkLogIn, (req, res, next) => {
     res.render('auth/profile.hbs', {name: myUserInfo.username})
 })
 
-router.get('/search', checkLogIn, (req, res, next) => {
-    res.send('Search page')
-})
 
 
 router.get('/logout', (req, res, next) => {
