@@ -12,21 +12,17 @@ router.get('/signin', (req, res, next) => {
 router.get('/signup', (req, res, next) => {
   res.render('auth/signup.hbs')
 })
-
 // Handles POST requests to /signup 
 router.post('/signup', (req, res, next) => {
     const {email, password} = req.body
-    
     // VALIDATIONS
-    
-  
     if (email == '' || password == '') {
         //throw error
         res.render('auth/signup.hbs', {error: 'Please enter all fields'})
         return;
     }
     //Validate if the password is strong
-    let passRegEx = /'^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$'/
+     let passRegEx = /'^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$'/
     if (!passRegEx.test(password)) {
       res.render('auth/signup.hbs', {error: 'Please enter Minimum eight characters, at least one letter and one number for your password'})
       return;
@@ -37,9 +33,7 @@ router.post('/signup', (req, res, next) => {
       res.render('auth/signup.hbs', {error: 'Please enter a valid email dude'})
       return;
     }
-    
     // Encryption
-
     let salt = bcrypt.genSaltSync(10);
     let hash = bcrypt.hashSync(password, salt);
 
@@ -50,9 +44,7 @@ router.post('/signup', (req, res, next) => {
       .catch((err) => {
         next(err)
       })
-
 })
-
 // Handles POST requests to /signin 
 router.post('/signin', (req, res, next) => {
     const {email, password} = req.body
@@ -90,7 +82,6 @@ router.post('/signin', (req, res, next) => {
         next(err)
       })
 })
-
 // Our Custom middleware that checks if the user is loggedin
 const checkLogIn = (req, res, next) => {
     if (req.session.myProperty ) {
@@ -101,17 +92,13 @@ const checkLogIn = (req, res, next) => {
       res.redirect('/signin')
     }
 }
-
 router.get('/profile', checkLogIn, (req, res, next) => {
     let myUserInfo = req.session.myProperty  
     res.render('auth/profile.hbs', {name: myUserInfo.username})
 })
-
 router.get('/search', checkLogIn, (req, res, next) => {
     res.send('Search page')
 })
-
-
 router.get('/logout', (req, res, next) => {
     // Deletes the session
     // this will also automatically delete the session from the DB

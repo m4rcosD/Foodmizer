@@ -19,7 +19,7 @@ const app = express();
 require('./config')(app);
 
 // default value for title local
-const projectName = 'lab-express-basic-auth';
+const projectName = 'Our-SuperCool-project';
 const capitalized = string => string[0].toUpperCase() + string.slice(1).toLowerCase();
 
 const session = require('express-session');
@@ -33,7 +33,7 @@ app.use( session ({
       maxAge: 1000 * 24* 60 * 60 // your cookie will be cleared after these seconds
     },
     store: MongoStore.create({
-      mongoUrl: process.env.MONGODB_URI || "mongodb://localhost/lab-express-basic-auth",
+      mongoUrl: process.env.MONGODB_URI || "mongodb://localhost/Our-SuperCool-project",
       // Time to Live for sessions in DB. After that time it will delete it!
       ttl: 24* 60 * 60 // your session will be cleared after these seconds
     })
