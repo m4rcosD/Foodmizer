@@ -1,16 +1,3 @@
-
-###What tools we used
-- We used the Spoonacular API and got a licence key for this project
-- Mongo DB --> for database
-- Postman --> test data from API
-- Axios --> to fetch data from API and conect to our server
-- Express.Js --> to create a server side project
-###Contributors
-This project is built by two creative mind that go by the alias's of:
-- @Marcos Paulo Dias
-- @Rodrigo Ribeiro
-
-
 # Food Randomizer 1.7
 
 ## Description
