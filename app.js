@@ -9,6 +9,10 @@ require('./db');
 // https://www.npmjs.com/package/express
 const express = require('express');
 
+//api
+
+//require axios
+
 // Handles the handlebars
 // https://www.npmjs.com/package/hbs
 const hbs = require('hbs');
@@ -33,7 +37,7 @@ app.use( session ({
       maxAge: 1000 * 24* 60 * 60 // your cookie will be cleared after these seconds
     },
     store: MongoStore.create({
-      mongoUrl: process.env.MONGODB_URI || "mongodb://localhost/Our-SuperCool-project",
+      mongoUrl: process.env.MONGODB_URI || "mongodb://localhost/Our-SuperCool-project  ",
       // Time to Live for sessions in DB. After that time it will delete it!
       ttl: 24* 60 * 60 // your session will be cleared after these seconds
     })
@@ -48,8 +52,12 @@ app.use('/', index);
 const authRoutes = require('./routes/auth.routes')
 app.use("/", authRoutes);
 
+const recipes = require('./routes/random.routes')
+app.use("/", recipes);
+
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require('./error-handling')(app);
 
-module.exports = app;
+module.exports = app; 
 
+ 
