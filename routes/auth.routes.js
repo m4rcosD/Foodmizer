@@ -199,8 +199,19 @@ router.get('/profile', checkLogIn, (req, res, next) => {
     let myUserInfo = req.session.myProperty  
     res.render('auth/profile.hbs', {name: myUserInfo.username})
 })
+<<<<<<< HEAD
 
 
+=======
+<<<<<<< HEAD
+
+
+=======
+router.get('/search', checkLogIn, (req, res, next) => {
+    res.send('Search page')
+})
+>>>>>>> 316354a925d5666dd3515e2c8b6608809f97ed93
+>>>>>>> 8e5b2801a2167cbb7b1b10f827605490c71bea21
 router.get('/logout', (req, res, next) => {
     // Deletes the session
     // this will also automatically delete the session from the DB
