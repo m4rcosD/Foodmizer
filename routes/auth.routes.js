@@ -1,19 +1,114 @@
 const router = require("express").Router();
 const UserModel = require('../models/User.model')
 const bcrypt = require('bcryptjs');
+//things from html 
+
+// Handles GET requests to /signin and shows a form
+router.get('/signin', (req, res, next) => {
+    res.render('auth/signin.hbs')
+})
+
+// Handles GET requests to /signup and shows a form
+router.get('/signup', (req, res, next) => {
+  res.render('auth/signup.hbs')
+})
+
+// Handles POST requests to /signup 
+router.post('/signup', (req, res, next) => {
+    const {username, email, password} = req.body
+    
+
+    let salt = bcrypt.genSaltSync(10);
+    let hash = bcrypt.hashSync(password, salt);
+
+    UserModel.create({username, email, password: hash})
+      .then(() => {
+          res.redirect('/');
+      })
+      .catch((err) => {
+        next(err)
+      })
+
+})
+
+// Handles POST requests to /signin 
+router.post('/signin', (req, res, next) => {
+    const {email, password} = req.body
+    
+    //DO Validations First
+
+    // Find the user email
+    UserModel.find({email})
+      .then((emailResponse) => {
+          // if the email exists check the password
+          if (emailResponse.length) {
+              //bcrypt decryption 
+              let userObj = emailResponse[0]
+
+              // check if password matches
+              let isMatching = bcrypt.compareSync(password, userObj.password);
+              if (isMatching) {
+                  // loggedInUser = userObj
+                  req.session.myProperty = userObj
+                  // req.session.welcome = 'Helllo'
+
+                  res.redirect('/profile')
+              }
+              else {
+                res.render('auth/signin.hbs', {error: 'Password not matching'})
+                return;
+              }
+          }
+          else {
+            res.render('auth/signin.hbs', {error: 'User email does not exist'})
+            return;
+          }
+      })
+      .catch((err) => {
+        next(err)
+      })
+})
+
+// Our Custom middleware that checks if the user is loggedin
+const checkLogIn = (req, res, next) => {
+    if (req.session.myProperty ) {
+      //invokes the next available function
+      next()
+    }
+    else {
+      res.redirect('/signin')
+    }
+}
+
+router.get('/profile', checkLogIn, (req, res, next) => {
+    let myUserInfo = req.session.myProperty  
+    res.render('auth/profile.hbs', {name: myUserInfo.username})
+})
+
+
+
+router.get('/logout', (req, res, next) => {
+    // Deletes the session
+    // this will also automatically delete the session from the DB
+    req.session.destroy()
+    res.redirect('/signin')
+})
+
+module.exports = router;
+
+
+/*
+const router = require("express").Router();
+const UserModel = require('../models/User.model')
+const bcrypt = require('bcryptjs');
 
 
 // Handles GET requests to /signin and shows a form
 router.get('/signs', (req, res, next) => {
     res.render('auth/signs.hbs')
 })
-
-// Handles GET requests to /signup and shows a form
-router.get('/signs', (req, res, next) => {
-  res.render('auth/signs.hbs')
-})
 // Handles POST requests to /signup 
-router.post('/signs', (req, res, next) => {
+router.post('/signup', (req, res, next) => {
     const {email, password} = req.body
     // VALIDATIONS
     if (email == '' || password == '') {
@@ -22,7 +117,7 @@ router.post('/signs', (req, res, next) => {
         return;
     }
     //Validate if the password is strong
-     let passRegEx = /'^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$'/
+    let passRegEx = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
     if (!passRegEx.test(password)) {
       res.render('auth/signs.hbs', {error: 'Please enter Minimum eight characters, at least one letter and one number for your password'})
       return;
@@ -107,3 +202,4 @@ router.get('/logout', (req, res, next) => {
 })
 
 module.exports = router;
+*/
