@@ -1,31 +1,14 @@
 const { Schema, model } = require("mongoose");
 
-// const recipesSchema = new Schema({
-// 	Recipeid: {
-// 		type: Number,
-// 		unique: true
-// 	},
-// 	Title: {
-// 		type: String,
-// 		required: true
-// 	},
-// 	Description: {
-// 		type: String,
-// 	},
-// 	Steps:{
-		
-// 	},
+const recipeSchema = new Schema({
+    recipeId: Number,
+    title: String,
+    image: String,
+    summary: String,
+    instruction: String,
+    readyInMinutes: Number,
+    servings: Number,
+});
 
-
-// Title: String
-// Description: String
-// Steps: String
-// Ingredients: String , Numbers
-// Cusine type: String
-// Duration: Number
-// Image: img  
-// });
-
-const User = model("User", userSchema);
-
-module.exports = User;
+const recipe = model("recipe", recipeSchema);
+module.exports = recipe;

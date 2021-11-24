@@ -1,6 +1,7 @@
  const axios = require("axios");
  const { response } = require("express");
  const router = require("express").Router();
+ const User = require("../models/User.model");
  const typesCusine =['African', 'American', 'British', 'Cajun', 'Caribbean', 'Chinese', 'Eastern', 'European', 'French', 'German', 'Greek', 'Indian', 'Irish', 'Italian', 'Japanese'];
  const diet = ['Gluten Free', 'Vegan', 'Vegetarian'];
  const intolerances = [ 'Dairy', 'Egg', 'Gluten', 'Grain', 'Peanut', 'Seafood', 'Sesame', 'Shellfish', 'Soy', 'Sulfite', 'Tree Nuts', 'Wheat'];
@@ -9,6 +10,9 @@
  router.get("/", (req, res, next) => {
    res.render("home.hbs" , {typesCusine, diet, intolerances, types}) 
  });
+ router.get("/recipe", (req, res, next) => {
+  res.render("recipes.hbs") 
+});
  router.post("/", (req, res, next) => {
    console.log(req.body)
    let {cuisine, diet, intolerances, types} = req.body
@@ -22,4 +26,10 @@
   }).catch((err) => {
   });
  })
- module.exports = router;
+//  User
+//  .findById(req.session.myProperty._id)
+//  .populate("fav")
+//  .then(recipes => {
+//     res.json(recipes); 
+//  });
+  module.exports = router;
