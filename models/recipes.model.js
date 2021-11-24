@@ -1,7 +1,7 @@
 const { Schema, model } = require("mongoose");
 
 const recipeSchema = new Schema({
-    id: Number,
+    recipeId: Number,
     title: String,
     image: String,
     summary: String,
@@ -11,5 +11,4 @@ const recipeSchema = new Schema({
 });
 
 const recipe = model("recipe", recipeSchema);
-
 module.exports = recipe;
