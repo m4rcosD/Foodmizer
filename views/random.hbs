@@ -1,14 +1,16 @@
 <h1>oi marcao</h1>
 
 <div class="row">
-   
-  <div class="column">
+
+     <div class="column"></div>
+    {{#each recipes}}
     <div class="card">
-      <h3>Cheese Crackers</h3>  
-        <p>Fun fast and simple</p>
-          <button>See more</button>
+      <h3><img src="{{this.image}}" alt=""></h3>
+      <p>{{this.title}}</p>
+      <p>Some text</p>
     </div>
-  </div>
+    {{/each}}
+</div>
 
   <div class="column">
     <div class="card">
@@ -17,7 +19,6 @@
           <button>See more</button>
     </div>
   </div>
-  
   <div class="column">
     <div class="card">
       <h3>Francesinha</h3>

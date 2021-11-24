@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const UserModel = require('../models/User.model')
 const bcrypt = require('bcryptjs');
+const uploader = require('../middleware/cloudinary.config.js');
 //things from html 
 
 // Handles GET requests to /signin and shows a form
@@ -69,6 +70,27 @@ router.post('/signin', (req, res, next) => {
       })
 })
 
+//Cloudinary
+router.post('/upload-pic', uploader.single("imageUrl"), (req, res, next) => {
+  // the uploader.single() callback will send the file to cloudinary and get you and obj with the url in return
+
+  if (!req.file) {
+    
+        return ;
+  }
+  UserModel.findByIdAndUpdate(req.session.myProperty._id, { image:req.file.path})
+    .then ((user)=>{
+        res.redirect('/profile')
+    })
+    .catch((err)=>{
+        next(err)
+    })
+  // You will get the image url in 'req.file.path'
+  // Your code to store your url in your database should be here
+})
+
+
+
 // Our Custom middleware that checks if the user is loggedin
 const checkLogIn = (req, res, next) => {
     if (req.session.myProperty ) {
@@ -82,7 +104,14 @@ const checkLogIn = (req, res, next) => {
 
 router.get('/profile', checkLogIn, (req, res, next) => {
     let myUserInfo = req.session.myProperty  
-    res.render('auth/profile.hbs', {name: myUserInfo.username})
+    UserModel.findById(req.session.myProperty._id)
+    .then((user)=>{
+      console.log(user)
+      res.render('auth/profile.hbs', {user})
+  })
+    .catch((err)=>{
+      next(err)
+  })
 })
 
 

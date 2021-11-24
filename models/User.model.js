@@ -8,7 +8,11 @@ const userSchema = new Schema({
 	password: {
 		type: String,
 		required: true
+	},
+	image:{
+		type : String
 	}
+
 });
 
 const User = model("User", userSchema);
