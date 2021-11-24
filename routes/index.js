@@ -15,7 +15,7 @@
    if(cuisine == "Random" ||diet == "None" ||intolerances == "None" || types == "None"){
      res.redirect("/")
    }
-  axios.get(`https://api.spoonacular.com/recipes/random?number=3&tags=${cuisine, diet, intolerances, types}&apiKey=${process.env.Spoonacular_Key}`)
+  axios.get(`https://api.spoonacular.com/recipes/random?number=1&tags=${cuisine, diet, intolerances, types}&apiKey=${process.env.Spoonacular_Key}`)
   .then((result) => {
     res.render("recipes.hbs", {recipes:result.data.recipes})
     console.log(result.data)

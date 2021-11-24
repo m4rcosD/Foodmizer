@@ -1,16 +1,58 @@
 <link rel="stylesheet" href="/stylesheets/recipes.css" />
+        <div class="corpo">
+             <div style=" float:left">
+    <div class="row">
+     {{#each recipes}}
+       <div class="row">
+         <div class="card">
+           <h3><img src="{{this.image}}" alt=""></h3>
+           <h2>{{this.instructions}}</h2>
+     <p>{{this.title}}</p>
+      
+    </div>
+  </div>
+    {{/each}}
+</div>
+         </div>
+     <div style=" float:right">
+         <div class="row">
+     {{#each recipes}}
+       <div class="raw">
+         <div class="card">
+      <h3>{{this.summary}} </h3>
+    </div>
+  </div>
+    {{/each}}
+         </div>
+</div>
 
- <h2>Recipes</h2>
+<!-- <h2>Recipes</h2>
 <p>This works?</p>
 
 <div class="row">
     {{#each recipes}}
   <div class="column">
     <div class="card">
-      <h3><img src="{{this.image}}" alt=""></h3>
-      <p>{{this.title}}</p>
+      <h3>IMAGE</h3>
+      <p>{{recipes.title}}</p>
       <p>Some text</p>
     </div>
   </div>
+
+  <div class="column">
+    <div class="card">
+      <h3>IMG</h3>
+      <p>{{recipes.title}}</p>
+      <p>Some text</p>
+    </div>
+  </div>
+  
+  <div class="column">
+    <div class="card">
+      <h3>IMG</h3>
+      <p>{{recipes.title}}</p>
+      <p>Some text</p>
+    </div>
+    </div>
     {{/each}}
-</div>
+</div> -->
