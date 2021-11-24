@@ -8,6 +8,7 @@ const recipeSchema = new Schema({
     instruction: String,
     readyInMinutes: Number,
     servings: Number,
+    id: Number
 });
 
 const recipe = model("recipe", recipeSchema);

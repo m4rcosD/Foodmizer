@@ -2,6 +2,7 @@
  const { response } = require("express");
  const router = require("express").Router();
  const User = require("../models/User.model");
+ const Recipe = require("../models/recipes.model");
  const typesCusine =['African', 'American', 'British', 'Cajun', 'Caribbean', 'Chinese', 'Eastern', 'European', 'French', 'German', 'Greek', 'Indian', 'Irish', 'Italian', 'Japanese'];
  const diet = ['Gluten Free', 'Vegan', 'Vegetarian'];
  const intolerances = [ 'Dairy', 'Egg', 'Gluten', 'Grain', 'Peanut', 'Seafood', 'Sesame', 'Shellfish', 'Soy', 'Sulfite', 'Tree Nuts', 'Wheat'];
@@ -25,6 +26,27 @@
     console.log(result.data)
   }).catch((err) => {
   });
+ })
+
+
+ router.get('/myRecipe/:id', (req, res, next) =>{
+  //  console.log(req.params.id)
+   Recipe.create({
+     id: req.params.id
+   })
+   .then((recipe) => {
+      User.findByIdAndUpdate(  req.session.myProperty._id, {$push:{fav: recipe._id}} )
+      .then(() => {
+       
+        res.redirect('/profile')
+
+      }).catch((err) => {
+        next(err)
+      });
+    
+    }).catch((err) => {
+      next(err)
+    });
  })
 //  User
 //  .findById(req.session.myProperty._id)
