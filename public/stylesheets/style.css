@@ -1,7 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  
 }
 #navBar{
   display: flex;
@@ -142,4 +142,45 @@ body {
 }
 .profileTxt{
   font-size: 200%;
+}
+
+
+
+
+.louise{
+  width : 460px;
+  padding: 0px;
+  border-radius: 10px;
+  background-color: rgb(124, 122, 115);
+  color: #f1f1f1;
+  
+  padding: 4px;
+  
+}
+option{
+  width: 333px;
+}
+
+.justRandom{
+  background-color: #d1673d; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+select {
+  min-width: 150px;
+}
+
+.container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 90%;
 }

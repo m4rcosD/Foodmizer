@@ -6,26 +6,28 @@
          </style>
     </h1>
 
-    <form action="/" method="POST">
-        <div class="form-group">
-          <label for="exampleFormControlSelect1">Cuisine</label>
+    <form class = "louise" action="/" method="POST">
+        
+         <div class="container">
+            <label for="exampleFormControlSelect1">Cuisine </label>
           <select class="form-control" id="exampleFormControlSelect1" name="cuisine">
             <option value="">Random</option>
         {{#each typesCusine}}
         <option value={{this}}>{{this}}</option>
         {{/each}}
           </select>
-        </div>
-                <div class="form-group">
-          <label for="exampleFormControlSelect1">Diet</label>
+         </div>
+       
+           <div class="container">   
+          <label for="exampleFormControlSelect1">Diet  .</label>
           <select class="form-control" id="exampleFormControlSelect1" name="diet">
             <option value="">None</option>
         {{#each diet}} 
         <option value={{this}}>{{this}}</option>
         {{/each}}
           </select>
-        </div>
-                <div class="form-group">
+        </div> 
+            <div class="container">   
           <label for="exampleFormControlSelect1">Intolerances</label>
           <select class="form-control" id="exampleFormControlSelect1" name="intolerances">
             <option value="">None</option>
@@ -33,8 +35,8 @@
         <option value={{this}}>{{this}}</option>
         {{/each}}
           </select>
-        </div>
-                <div class="form-group">
+       </div> 
+            <div class="container">   
           <label for="exampleFormControlSelect1">Types</label>
           <select class="form-control" id="exampleFormControlSelect1" name="types">
             <option value="">None</option>
@@ -42,13 +44,13 @@
         <option value={{this}}>{{this}}</option>
         {{/each}}
           </select>
-        </div>
+      </div> 
               <div id="searchBoard">
                 <button type="submit">Search</button>
         </div>
       </form>
-            <div id="justRandom">
+            <button class = 'justRandom' id="justRandom">
                     <a href="/random"> Just a random</a>
-            </div>
+            </button>
 
 </div>
