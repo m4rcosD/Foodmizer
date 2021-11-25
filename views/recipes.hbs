@@ -7,7 +7,7 @@
        <div class="row">
          <div class="card">
            <h3><img src="{{this.image}}" alt=""></h3>
-           <h2>{{this.instructions}}</h2>
+           <h2>{{{this.instructions}}}</h2>
            <form>
            <a href="/myrecipe/{{this.id}}" > <img src="images/fav.png" alt=""> </a>
           </form>
@@ -23,7 +23,7 @@
      {{#each recipes}}
        <div class="raw">
          <div class="card">
-      <h3>{{this.summary}} </h3>
+      <h3>{{{this.summary}}} </h3>
     </div>
   </div>
     {{/each}}

@@ -2,6 +2,7 @@ const router = require("express").Router();
 const UserModel = require('../models/User.model')
 const bcrypt = require('bcryptjs');
 const uploader = require('../middleware/cloudinary.config.js');
+const axios = require("axios");
 //things from html 
 
 // Handles GET requests to /signin and shows a form
@@ -105,16 +106,15 @@ const checkLogIn = (req, res, next) => {
 router.get('/profile', checkLogIn, (req, res, next) => {
     let myUserInfo = req.session.myProperty  
     UserModel.findById(req.session.myProperty._id)
+    .populate("fav")
     .then((user)=>{
-      console.log(user)
+      console.log(user.fav)
       res.render('auth/profile.hbs', {user})
   })
     .catch((err)=>{
       next(err)
   })
 })
-
-
 
 router.get('/logout', (req, res, next) => {
     // Deletes the session

@@ -12,33 +12,16 @@
 </div>
 <div class="split right">
         <div class="row">
-   
-  <div class="column">
-    <div class="card">
-      <h3>Cheese Crackers</h3>  
-      <p>Fun fast and simple</p>
-      <button>See more</button>
-    </div>
-  </div>
-
-  <div class="column">
-    <div class="card">
-      <h3>Chiken Curry</h3>
-      <p>Taste manish's favourite</p>
-      <button>See more</button>
-    </div>
-  </div>
-  
-  <div class="column">
-    <div class="card">
-      <h3>Francesinha</h3>
-      <p>Portugal's princess lolol</p>
-      <button>See more</button>
-    </div>
-    </div>
-    <form action="/drones/{{this._id}}/delete" method="GET">
-    <button class="btn btn-info">Delete</button>
-  </form>
+   {{#each recipe}}
+   <h1> {{this.title}} </h1>
+   <div>
+     <img src="{{this.image}}" alt="">
+    <h3> {{this.summary}} </h3>
+   </form>  
+  <button class ='delete'>Delete Account</button>
 </div>
-
+</form>  
+  <button class ='open'>open</button>
+</div>
+   {{/each}}
 </div>
