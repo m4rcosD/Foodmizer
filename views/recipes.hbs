@@ -8,6 +8,9 @@
          <div class="card">
            <h3><img src="{{this.image}}" alt=""></h3>
            <h2>{{this.instructions}}</h2>
+           <form>
+           <a href="/myrecipe/{{this.id}}" > <img src="images/fav.png" alt=""> </a>
+          </form>
      <p>{{this.title}}</p>
       
     </div>
@@ -24,9 +27,7 @@
     </div>
   </div>
     {{/each}}
-    <form>
-      <button></a type="submit" > <img src="images/fav.png" alt=""> </a>
-    </form>
+    
          </div>
 </div>
 
