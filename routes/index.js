@@ -36,6 +36,7 @@
   let servings = ""
 
   axios.get(`https://api.spoonacular.com/recipes/${req.params.id}/information?apiKey=${process.env.Spoonacular_Key}`)
+  res.render('auth/profile.hbs')
   .then((res)=>{
     title = res.data.title,
     image = res.data.image,
@@ -56,7 +57,6 @@
   })
   .then((recipe) => {
     return User.findByIdAndUpdate(req.session.myProperty._id, {$push:{fav: recipe._id}} )
-    ;
   })
   .then(() => {
     res.redirect('/profile')
