@@ -48,6 +48,19 @@
       next(err)
     });
  })
+ router.get("/myRecipe/:id/delete", (req, res, next) => {
+  // Iteration #5: Delete the drone
+  const {id} = req.params;
+  console.log(id);
+  User.findByIdAndDelete(req.session.myProperty._id,)
+    .then(() => {
+      res.redirect("/profile");
+    })
+    .catch(() => {
+      next("Deleting failed");
+    });
+});
+
 //  User
 //  .findById(req.session.myProperty._id)
 //  .populate("fav")
