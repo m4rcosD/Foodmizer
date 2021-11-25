@@ -2,6 +2,7 @@ const { Schema, model } = require("mongoose");
 require('./recipes.model')
 const userSchema = new Schema({
 	name: String,
+	diet: String,
 	email: {
 		type: String,
 		unique: true

@@ -35,30 +35,27 @@
      id: req.params.id
    })
    .then((recipe) => {
-      User.findByIdAndUpdate(  req.session.myProperty._id, {$push:{fav: recipe._id}} )
+      User.findByIdAndUpdate(req.session.myProperty._id, {$push:{fav: recipe._id}} )
       .then(() => {
-       
         res.redirect('/profile')
-
       }).catch((err) => {
         next(err)
       });
-    
     }).catch((err) => {
       next(err)
     });
  })
  router.get("/myRecipe/:id/delete", (req, res, next) => {
-  // Iteration #5: Delete the drone
-  const {id} = req.params;
-  console.log(id);
-  User.findByIdAndDelete(req.session.myProperty._id,)
+  Recipe.create({
+    id: req.params.id
+  })
+  User.findByIdAndDelete(req.session.myProperty._id)
     .then(() => {
       res.redirect("/profile");
     })
     .catch(() => {
       next("Deleting failed");
-    });
+    })
 });
 
 //  User
