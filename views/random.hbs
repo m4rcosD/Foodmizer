@@ -1,2 +1,15 @@
-<h2>hey</h2>
+<h1>oi marcao</h1>
+
+<div class="row">
+
+     <div class="column"></div>
+    {{#each recipe}}
+    <div class="card">
+      <h3><img src="{{this.image}}" alt=""></h3>
+      <p>{{this.title}}</p>
+      <p></p>
+    </div>
+    {{/each}}
+</div>
+</div>
 <button onClick="window.location.reload();">Randomize it again</button>

@@ -1,6 +1,8 @@
 const router = require("express").Router();
 const UserModel = require('../models/User.model')
 const bcrypt = require('bcryptjs');
+const uploader = require('../middleware/cloudinary.config.js');
+const axios = require("axios");
 //things from html 
 
 // Handles GET requests to /signin and shows a form
@@ -69,6 +71,27 @@ router.post('/signin', (req, res, next) => {
       })
 })
 
+//Cloudinary
+router.post('/upload-pic', uploader.single("imageUrl"), (req, res, next) => {
+  // the uploader.single() callback will send the file to cloudinary and get you and obj with the url in return
+
+  if (!req.file) {
+    
+        return ;
+  }
+  UserModel.findByIdAndUpdate(req.session.myProperty._id, { image:req.file.path})
+    .then ((user)=>{
+        res.redirect('/profile')
+    })
+    .catch((err)=>{
+        next(err)
+    })
+  // You will get the image url in 'req.file.path'
+  // Your code to store your url in your database should be here
+})
+
+
+
 // Our Custom middleware that checks if the user is loggedin
 const checkLogIn = (req, res, next) => {
     if (req.session.myProperty ) {
@@ -82,10 +105,16 @@ const checkLogIn = (req, res, next) => {
 
 router.get('/profile', checkLogIn, (req, res, next) => {
     let myUserInfo = req.session.myProperty  
-    res.render('auth/profile.hbs', {name: myUserInfo.username})
+    UserModel.findById(req.session.myProperty._id)
+    .populate("fav")
+    .then((user)=>{
+      console.log(user.fav)
+      res.render('auth/profile.hbs', {user})
+  })
+    .catch((err)=>{
+      next(err)
+  })
 })
-
-
 
 router.get('/logout', (req, res, next) => {
     // Deletes the session
@@ -113,7 +142,6 @@ router.post('/signup', (req, res, next) => {
     const {email, password} = req.body
     
     // VALIDATIONS
-  
     if (email == '' || password == '') {
         //throw error
         res.render('auth/signs.hbs', {error: 'Please enter all fields'})
@@ -200,6 +228,11 @@ router.get('/profile', checkLogIn, (req, res, next) => {
     res.render('auth/profile.hbs', {name: myUserInfo.username})
 })
 <<<<<<< HEAD
+router.get('/search', checkLogIn, (req, res, next) => {
+    res.send('Search page')
+})
+=======
+<<<<<<< HEAD
 
 
 =======
@@ -211,7 +244,11 @@ router.get('/search', checkLogIn, (req, res, next) => {
     res.send('Search page')
 })
 >>>>>>> 316354a925d5666dd3515e2c8b6608809f97ed93
+<<<<<<< HEAD
 >>>>>>> 8e5b2801a2167cbb7b1b10f827605490c71bea21
+=======
+>>>>>>> 14d6521d2b2b20fb06e7a7618bd6a70dd51be882
+>>>>>>> 46f28ada66630c055da582aabb09f41d2ea9b0cc
 router.get('/logout', (req, res, next) => {
     // Deletes the session
     // this will also automatically delete the session from the DB
