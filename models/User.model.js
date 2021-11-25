@@ -10,6 +10,7 @@ const userSchema = new Schema({
 		type: String,
 		required: true
 	},
+	image: String,
 	fav: [{
 		type: Schema.Types.ObjectId,
 		ref: "recipe"
