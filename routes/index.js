@@ -68,6 +68,20 @@
   });
 })
 
+router.post("/myRecipe/:id", (req, res, next) => {
+
+  axios.get(`https://api.spoonacular.com/recipes/${req.params.id}/information?apiKey=${process.env.Spoonacular_Key}`)
+  
+  Recipe.findById(id)
+    .then(() => {
+      res.redirect("/recipe");
+    })
+    .catch(() => {
+      next("Deleting failed");
+    });
+});
+
+
 router.post("/myRecipe/:id/delete", (req, res, next) => {
   // Iteration #5: Delete the drone
   const { id } = req.params;

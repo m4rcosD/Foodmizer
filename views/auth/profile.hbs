@@ -12,7 +12,7 @@
 </div>
 <div class="split right">
   {{#each user.fav}}
-  <a href="/myRecipe/{{this._id}}" type="submit"><h2>{{this.title}}</h2></a>
+  <a href="/recipe/{{this.id}}" type="submit"><h2>{{this.title}}</h2></a>
 
       <form action="/myRecipe/{{this._id}}/delete" method="post">
     <button class="btn btn-info">Delete</button>
