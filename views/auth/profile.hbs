@@ -11,6 +11,11 @@
   <button class ='delete'>Delete Account</button>
 </div>
 <div class="split right">
-               <h1>hey</h1>
-               {{recipes}}
+  {{#each user.fav}}
+  <a href="/myRecipe/{{this._id}}" type="submit"><h2>{{this.title}}</h2></a>
+
+      <form action="/myRecipe/{{this._id}}/delete" method="post">
+    <button class="btn btn-info">Delete</button>
+  </form>
+  {{/each}}
 </div>

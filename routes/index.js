@@ -36,17 +36,18 @@
   let servings = ""
 
   axios.get(`https://api.spoonacular.com/recipes/${req.params.id}/information?apiKey=${process.env.Spoonacular_Key}`)
-  res.render('auth/profile.hbs')
   .then((res)=>{
     title = res.data.title,
     image = res.data.image,
     summary = res.data.summary,
-    instruction = res.instruction,
-    readyInMinutes = res.readyInMinutes,
-    servings = res.servings
+    instruction = res.data.instruction,
+    readyInMinutes = res.data.readyInMinutes,
+    servings = res.data.servings
+    console.log
   })
   .then((res)=>{
     return Recipe.create({
+    title,
     summary,
     image,
     instruction,
@@ -67,7 +68,7 @@
   });
 })
 
-router.get("/myRecipe/:id/delete", (req, res, next) => {
+router.post("/myRecipe/:id/delete", (req, res, next) => {
   // Iteration #5: Delete the drone
   const { id } = req.params;
   console.log(id);
@@ -80,10 +81,7 @@ router.get("/myRecipe/:id/delete", (req, res, next) => {
       next("Deleting failed");
     });
 });
-//  User
-//  .findById(req.session.myProperty._id)
-//  .populate("fav")
-//  .then(recipes => {
-//     res.json(recipes); 
-//  });
+
+
+
   module.exports = router;
