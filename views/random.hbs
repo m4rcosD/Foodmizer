@@ -1,15 +1,42 @@
-<h1>oi marcao</h1>
+ <link rel="stylesheet" href="/stylesheets/random.css" />
 
-<div class="row">
+<div class="split left">
+ <div class="column">
+   <div class="row">
+   
+    {{#each recipe}}
+      <h1>{{this.title}}</h1>
+      <h3><img src="{{this.image}}" alt=""></h3>
+      <h3> {{{this.instructions}}}</h3>
+      <h3> ready in {{this.readyInMinutes}} minutes</h3>
+      <h3> servings {{this.servings}} peoples</h3>
+    {{/each}}
+ </div>
+</div>
 
+<div class="split right">
+   <div class="column">
+   <div class="row">
+  {{#each recipe}}   
+       <h3>{{{this.summary}}} </h3>
+
+    {{/each}}
+</div>
+</div>
+
+
+{{!-- <div class="row">
      <div class="column"></div>
     {{#each recipe}}
-    <div class="card">
+    <div class="card">      
+      <h1>{{this.title}}</h1>
       <h3><img src="{{this.image}}" alt=""></h3>
-      <p>{{this.title}}</p>
-      <p></p>
+       <h3>{{{this.summary}}} </h3>
+      <h3> {{{this.instructions}}}</h3>
+      <h3> ready in {{this.readyInMinutes}} minutes</h3>
+      <h3> servings {{this.servings}} peoples</h3>
     </div>
     {{/each}}
 </div>
 </div>
-<button onClick="window.location.reload();">Randomize it again</button>
+<button onClick="window.location.reload();">Another recipe</button> --}}

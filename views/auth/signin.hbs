@@ -1,5 +1,28 @@
-<form method="POST" action="/signin">
-    <label>Email</label>
+<link rel="stylesheet" href="/stylesheets/login.css" />
+<body>
+  <div class="container-shadow"></div>
+  <div class="container">
+    <div class="wrap">
+      <div class="headings">
+        <a id="sign-in" href="" class="active"><span>Log In</span></a>
+      </div>
+      <div id="sign-in-form">
+        <form method="post" action="/signin">
+          <label for="email">Email</label>
+          <input id="email" type="text" name="email" placeholder="Enter your email" />
+          <label for="password">Password</label>
+          <input id="password" type="password" name="password" />
+          <input id="remember" type="checkbox" />
+          <label for="remember" id="rlabel">Keep me Signed in</label>
+          <input type="submit" class="button" name="submit" value="Sign in" />
+        </form>
+    </div>
+  </div>
+</body>
+
+
+{{!-- <form method="POST" action="/signin">
+  <label>Email</label>
   <input type="email" name="email" placeholder="Enter your email"  >
 
   <label>Password</label>
@@ -11,4 +34,4 @@
 
  <p class="error">Message: {{error}}</p>
 
-{{/if}}
+{{/if}} --}}

@@ -1,4 +1,30 @@
-<form method="POST" action="/signup">
+<link rel="stylesheet" href="/stylesheets/register.css" />
+<body>
+  <div class="container-shadow"></div>
+  <div class="container">
+    <div class="wrap">
+      <div class="headings">
+        <a id="register" href="" class="active"><span>Register</span></a>
+      </div>
+      <div id="sign-in-form">
+        <form method="post" action="/signup">
+          <label for="email">Email</label>
+          <input id="email" type="text" name="email" placeholder="Enter your email" />
+          <label for="password">Password</label>
+          <input id="password" type="password" name="password" />
+          <input id="remember" type="checkbox" />
+          <label for="remember" id="rlabel">Keep me Signed in</label>
+          <input type="submit" class="button" name="submit" value="Register" />
+        </form>
+    </div>
+  </div>
+</body>
+{{#if error}}
+
+ <p class="error">Message: {{error}}</p>
+
+{{/if}}
+{{!-- <form method="POST" action="/signup">
   <label>name</label>
   <input type="name" name="name" placeholder="Enter your name"  >
 
@@ -17,4 +43,4 @@
 
  <p class="error">Message: {{error}}</p>
 
-{{/if}}
+{{/if}} --}}

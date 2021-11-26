@@ -1,18 +1,22 @@
 <link rel="stylesheet" href="/stylesheets/recipes.css" />
 
+
+
+
+
+
+
         <div class="corpo">
              <div style=" float:left">
     <div class="row">
-     {{#each recipes}}
+     {{#each recipe}}
        <div class="row">
          <div class="card">
            <h3><img src="{{this.image}}" alt=""></h3>
            <h2>{{{this.instructions}}}</h2>
-           <form>
-           <a href="/myRecipe/{{this.id}}" > <img src="images/fav.png" alt=""> </a>
-          </form>
+
      <p>{{this.title}}</p>
-      
+
     </div>
   </div>
     {{/each}}
@@ -23,42 +27,18 @@
      {{#each recipes}}
        <div class="raw">
          <div class="card">
+           <h1> {{{this.title}}} </h1>
+           <h1> <img src="{{this.image}}" alt=""> </h1>
       <h3>{{{this.summary}}} </h3>
+      <h3> {{{this.instruction}}} </h3>
+      <h3> ready in {{this.readyInMinutes}} minutes</h3>
+      <h3> servings {{this.servings}} </h3>
     </div>
   </div>
 
     {{/each}}
-    
+                     <form>
+           <a href="/myRecipe/{{this.id}}" > <img src="images/fav.png" alt=""> </a>
+          </form>
          </div>
 </div>
-
-<!-- <h2>Recipes</h2>
-<p>This works?</p>
-
-<div class="row">
-    {{#each recipes}}
-  <div class="column">
-    <div class="card">
-      <h3>IMAGE</h3>
-      <p>{{recipes.title}}</p>
-      <p>Some text</p>
-    </div>
-  </div>
-
-  <div class="column">
-    <div class="card">
-      <h3>IMG</h3>
-      <p>{{recipes.title}}</p>
-      <p>Some text</p>
-    </div>
-  </div>
-  
-  <div class="column">
-    <div class="card">
-      <h3>IMG</h3>
-      <p>{{recipes.title}}</p>
-      <p>Some text</p>
-    </div>
-    </div>
-    {{/each}}
-</div> -->

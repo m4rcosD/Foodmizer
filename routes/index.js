@@ -26,7 +26,6 @@
   });
  })
 
-
  router.get('/myRecipe/:id', (req, res, next) =>{
   //  console.log(req.params.id)
   let title = ""
@@ -94,6 +93,19 @@ router.post("/myRecipe/:id/delete", (req, res, next) => {
     .catch(() => {
       next("Deleting failed");
     });
+});
+
+router.get("/recipe/:id", (req, res, next) => {
+  const { id } = req.params;
+  Recipe.findOne({id})
+    .then((recipe) => {
+      console.log(recipe, "hey")
+      res.render("recipes.hbs", {recipe}) 
+      
+    }).catch((err) => {
+      next("err");
+    });
+
 });
 
 
