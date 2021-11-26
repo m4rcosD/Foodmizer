@@ -1,2 +1,63 @@
 <h1>404 Error</h1>
 <h2>This route does not exist on the app! Check if everything is ok!</h2>
+
+{{!-- A
+<div class="dropdown">
+  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+    Cuisine
+  </a>
+
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <li><a class="dropdown-item" href="#" value="">Random</a></li>
+    {{#each typesCusine}}
+    <li><a class="dropdown-item" href="#" value= {{this}}>{{this}}</a></li>
+    {{/each}}
+  </ul>
+</div>
+{{!-- Button --}}
+
+     <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+    Cuisine 
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+    <li><a class="dropdown-item"  value="">Random</a></li>
+    {{#each typesCusine}}
+    <li><a class="dropdown-item"  value= {{this}}>{{this}}</a></li>
+    {{/each}}
+  </ul>
+</div>
+{{!-- Original  --}}
+<div class="container">
+            <label for="exampleFormControlSelect1">Cuisine </label>
+          <select class="form-control" id="exampleFormControlSelect1" name="cuisine">
+            <option value="">Random</option>
+        {{#each typesCusine}}
+        <option value={{this}}>{{this}}</option>
+        {{/each}}
+          </select>
+         </div>
+
+         {{!-- Select --}}
+<div class="container">
+    <label for="exampleFormControlSelect1">Cuisine </label>
+         <select class="form-select" aria-label="Default select example" id="exampleFormControlSelect1" name="cuisine">
+  <option value= "">Cuisine</option>
+ {{#each typesCusine}}
+        <option value={{this}}>{{this}}</option>
+        {{/each}}
+</select>
+</div> --}}
+
+
+
+{{!-- improved select --}}
+     <div class="container">
+    <label for="exampleFormControlSelect1">Types</label>
+         <select class="form-select" aria-label="Default select example" id="exampleFormControlSelect1" name="types">
+  <option value= "">None</option>
+ {{#each types}}
+        <option value={{this}}>{{this}}</option>
+        {{/each}}
+</select>
+</div>

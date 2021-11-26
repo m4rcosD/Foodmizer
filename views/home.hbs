@@ -6,51 +6,52 @@
          </style>
     </h1>
 
-    <form class = "louise" action="/" method="POST">
+    <form class = "butterchicken" action="/" method="POST">
         
-         <div class="container">
-            <label for="exampleFormControlSelect1">Cuisine </label>
-          <select class="form-control" id="exampleFormControlSelect1" name="cuisine">
-            <option value="">Random</option>
-        {{#each typesCusine}}
+       <div class="container">
+    <label for="exampleFormControlSelect1">Cuisine </label>
+         <select class="form-select" aria-label="Default select example" id="exampleFormControlSelect1" name="cuisine">
+  <option value= "">Random</option>
+ {{#each typesCusine}}
         <option value={{this}}>{{this}}</option>
         {{/each}}
-          </select>
-         </div>
+</select>
+</div>
+
        
-           <div class="container">   
-          <label for="exampleFormControlSelect1">Diet  .</label>
-          <select class="form-control" id="exampleFormControlSelect1" name="diet">
-            <option value="">None</option>
-        {{#each diet}} 
+            <div class="container">
+    <label for="exampleFormControlSelect1">Diet</label>
+         <select class="form-select" aria-label="Default select example" id="exampleFormControlSelect1" name="diet">
+  <option value= "">None</option>
+ {{#each diet}}
         <option value={{this}}>{{this}}</option>
         {{/each}}
-          </select>
-        </div> 
-            <div class="container">   
-          <label for="exampleFormControlSelect1">Intolerances</label>
-          <select class="form-control" id="exampleFormControlSelect1" name="intolerances">
-            <option value="">None</option>
-        {{#each intolerances}} 
+</select>
+</div>
+            <div class="container">
+    <label for="exampleFormControlSelect1">Intolerances</label>
+         <select class="form-select" aria-label="Default select example" id="exampleFormControlSelect1" name="intolerances">
+  <option value= "">None</option>
+ {{#each intolerances}}
         <option value={{this}}>{{this}}</option>
         {{/each}}
-          </select>
-       </div> 
-            <div class="container">   
-          <label for="exampleFormControlSelect1">Types</label>
-          <select class="form-control" id="exampleFormControlSelect1" name="types">
-            <option value="">None</option>
-        {{#each types}} 
+</select>
+</div>
+            <div class="container">
+    <label for="exampleFormControlSelect1">Types</label>
+         <select class="form-select" aria-label="Default select example" id="exampleFormControlSelect1" name="types">
+  <option value= "">None</option>
+ {{#each types}}
         <option value={{this}}>{{this}}</option>
         {{/each}}
-          </select>
-      </div> 
+</select>
+</div>
               <div id="searchBoard">
-                <button type="submit">Search</button>
+                <button type="submit" class="btn btn-outline-secondary">Search</button>
         </div>
       </form>
-            <button class = 'justRandom' id="justRandom">
-                    <a href="/random"> Just a random</a>
-            </button>
+            <button type="button" class="btn btn-dark"><a href="/random"> Just a random</a></button>
 
 </div>
+
+

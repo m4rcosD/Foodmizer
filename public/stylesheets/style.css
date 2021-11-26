@@ -1,6 +1,6 @@
 * {
   margin: 0;
-  /* padding: 0; */
+  /* padding: 0;  */
 
 }
 .navbar-nav{
@@ -70,13 +70,16 @@ body {
   top: 0;
   overflow-x: hidden;
   padding-top: 20px;
+  padding: 20px;
 }
 
 /* Control the left side */
 .left {
   left: 0;
-  background-color: rgb(250, 243, 243);
+  background-image:url(../images/madeira.jpg);
+  background-size: 100%;
   padding-top: 8vh;
+  padding: 20px;
 }
 
 /* Control the right side */
@@ -85,7 +88,8 @@ body {
   display : flex;
   flex-direction: column;
   right: 0;
-  background-color: rgb(163, 96, 96);
+  background-color: rgb(16, 14, 14);
+  padding: 30px;
   
 }
 
@@ -142,7 +146,8 @@ body {
   padding: 28px;
    */
    border-radius: 10px;
-   background: #1c4370;
+   background: #030507;
+   opacity: 90%;
    padding: 20px;
    width: 650px;
    height: 350px;
@@ -168,11 +173,20 @@ option{
 
 select {
   min-width: 150px;
+  
 }
 
-.container{
+#searchBoard{
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 90%;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
+
+}
+
+.putfoto{
+  position: absolute;
+  left: 10%;
+  top: 92%;
+
 }

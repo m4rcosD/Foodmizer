@@ -4,7 +4,7 @@
     <img src="{{user.image}}" alt="profile pic">
     <p class= 'profileTxt'>Hello {{user.email}} , welcome to your digital recipes Book</p>
   </div>
-  <form method="POST" action="/upload-pic" enctype="multipart/form-data">
+  <form class= 'putfoto' method="POST" action="/upload-pic" enctype="multipart/form-data">
     <input type="file" name="imageUrl" accept="image/png, image/jpg">
     <button type="submit">Submit</button> 
 </form>  
