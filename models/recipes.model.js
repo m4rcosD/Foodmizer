@@ -5,7 +5,7 @@ const recipeSchema = new Schema({
     title: String,
     image: String,
     summary: String,
-    instruction: String,
+    instructions: String,
     readyInMinutes: Number,
     servings: Number,
     id: Number

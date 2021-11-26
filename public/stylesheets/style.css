@@ -1,32 +1,15 @@
 * {
   margin: 0;
-  padding: 0;
-  
+  /* padding: 0; */
+
 }
-#navBar{
-  display: flex;
-  padding-bottom: 2px;
-  justify-content: space-between;
-  background-color: #264f73;
-  padding-right: 10px;
-  font-size: 14px;
-}
-#textNavb{
+.navbar-nav{
   color: white;
 }
-#navBar > ul{
-  display: flex;
-  font-size: 23px;
-  padding-top: 8px;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items:flex-end;
-  width: 35%;
-  list-style: none;
-}
-
 .dm {
-  background-image: url(../images/pexels-edward-eyer-1049626.jpg);
+  background-image: url(../images/colheres.png);
+ 
+  background-position: center bottom;
   background-size: 100%;
   height: 900px;  
   display: flex;
@@ -38,8 +21,9 @@
 
 #txt1df {
   font-size: 64px;
-  opacity: 1;
   color: #264f73;
+  margin-top: 120px; 
+  margin-bottom: 30px;
 }
 a {
   color: white;
@@ -92,14 +76,17 @@ body {
 .left {
   left: 0;
   background-color: rgb(250, 243, 243);
+  padding-top: 8vh;
 }
 
 /* Control the right side */
 .right {
+  padding-top: 5vh;
   display : flex;
   flex-direction: column;
   right: 0;
   background-color: rgb(163, 96, 96);
+  
 }
 
 /* If you want the content centered horizontally and vertically */
@@ -147,22 +134,27 @@ body {
 
 
 
-.louise{
-  width : 460px;
+.butterchicken{
+  /* width : 460px;
   padding: 0px;
   border-radius: 10px;
-  background-color: rgb(124, 122, 115);
-  color: #f1f1f1;
-  
-  padding: 4px;
-  
+  background-image: url(../images/wood.jpg);
+  padding: 28px;
+   */
+   border-radius: 10px;
+   background: #1c4370;
+   padding: 20px;
+   width: 650px;
+   height: 350px;
+   
+
 }
 option{
   width: 333px;
 }
 
 .justRandom{
-  background-color: #d1673d; /* Green */
+  background-color: #d1673d;
   border: none;
   color: white;
   padding: 15px 32px;
