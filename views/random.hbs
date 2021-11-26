@@ -1,42 +1,19 @@
- <link rel="stylesheet" href="/stylesheets/random.css" />
-
-<div class="split left">
- <div class="column">
-   <div class="row">
-   
+ 
+   <div id="container">
     {{#each recipe}}
-      <h1>{{this.title}}</h1>
-      <h3><img src="{{this.image}}" alt=""></h3>
-      <h3> {{{this.instructions}}}</h3>
-      <h3> ready in {{this.readyInMinutes}} minutes</h3>
-      <h3> servings {{this.servings}} peoples</h3>
-    {{/each}}
- </div>
-</div>
+      <h1 id="title"> <span>{{this.title}}</span> </h1>
+        <div id="fisrtContainer">
+            <span>
+          <h3 id="image"><img src="{{this.image}}" alt=""></h3>
+          <h3 id="readyIN"> <span> ready in: {{this.readyInMinutes}} minutes </span> </h3>
+          <h3 id="serving"> <span> servings: {{this.servings}} people </span> </h3>
+            <h3 id="summary"> <span> <{{{this.summary}}} </span> </h3>
+            </span>
+        </div>
 
-<div class="split right">
-   <div class="column">
-   <div class="row">
-  {{#each recipe}}   
-       <h3>{{{this.summary}}} </h3>
-
-    {{/each}}
-</div>
-</div>
-
-
-{{!-- <div class="row">
-     <div class="column"></div>
-    {{#each recipe}}
-    <div class="card">      
-      <h1>{{this.title}}</h1>
-      <h3><img src="{{this.image}}" alt=""></h3>
-       <h3>{{{this.summary}}} </h3>
-      <h3> {{{this.instructions}}}</h3>
-      <h3> ready in {{this.readyInMinutes}} minutes</h3>
-      <h3> servings {{this.servings}} peoples</h3>
-    </div>
-    {{/each}}
-</div>
-</div>
-<button onClick="window.location.reload();">Another recipe</button> --}}
+        <h3 id="instructions"> <span> {{{this.instructions}}} </span> </h3>
+        <div id="button">
+     <button type="button" onClick="window.location.reload();" class="btn btn-secondary btn-sm">Another recipe</button>
+     
+  {{/each}}
+  </div>

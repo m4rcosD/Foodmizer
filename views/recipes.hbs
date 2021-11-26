@@ -1,37 +1,36 @@
-<link rel="stylesheet" href="/stylesheets/recipes.css" />
+
         <div class="corpo">
-             <div style=" float:left">
     <div class="row">
      {{#each recipe}}
-       <div class="row">
-         <div class="card">
-           <h3><img src="{{this.image}}" alt=""></h3>
-           <h2>{{{this.instructions}}}</h2>
-
-     <p>{{this.title}}</p>
-
-    </div>
-  </div>
+      <h1 id="title"> <span>{{this.title}}</span> </h1>
+        <div id="fisrtContainer">
+            <span>
+          <h3 id="image"><img src="{{this.image}}" alt=""></h3>
+            <h3 id="summary"> <span> {{{this.summary}}} </span> </h3>
+            </span>
+            </div>
     {{/each}}
-</div>
-         </div>
-     <div style=" float:right">
+    </div>
+     <div>
          <div class="row">
      {{#each recipes}}
-       <div class="raw">
-         <div class="card">
-           <h1> {{{this.title}}} </h1>
-           <h1> <img src="{{this.image}}" alt=""> </h1>
-      <h3>{{{this.summary}}} </h3>
-      <h3> {{{this.instruction}}} </h3>
-      <h3> ready in {{this.readyInMinutes}} minutes</h3>
-      <h3> servings {{this.servings}} </h3>
-    </div>
-  </div>
+      <h1 id="title"> <span>{{this.title}}</span> </h1>
+        <div id="fisrtContainer">
+            <span>
+          <h3 id="image"><img src="{{this.image}}" alt=""></h3>
+          <h3 id="readyIN"> <span> ready in {{this.readyInMinutes}} minutes </span> </h3>
+          <h3 id="serving"> <span> servings {{this.servings}} peoples </span> </h3>
+            <h3 id="summary"> <span> <{{{this.summary}}} </span> </h3>
+            </span>
+        </div>
 
-    {{/each}}
-                     <form>
-           <a href="/myRecipe/{{this.id}}" > <img src="images/fav.png" alt=""> </a>
+        <h3 id="instructions"> <span> {{{this.instructions}}} </span> </h3>
+        <div id="refresh">
+     <button type="button" onClick="window.location.reload();" class="btn btn-secondary btn-sm">Another recipe</button>
+       </div>
+        <form>
+           <a href="/myRecipe/{{this.id}}" > <img class="img-heart" src="images/fav.png" alt=""> </a>
           </form>
-         </div>
+    {{/each}}
+ </div>
 </div>

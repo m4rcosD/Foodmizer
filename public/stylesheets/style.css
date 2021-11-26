@@ -2,7 +2,9 @@
   margin: 0;
   /* padding: 0; */
 
+
 }
+
 .navbar-nav{
   color: white;
 }
@@ -63,6 +65,7 @@ body {
   background-color: #f1f1f1;}
   /* Split the screen in half */
 .split {
+  margin-top: 50px;
   height: 100%;
   width: 50%;
   position: fixed;

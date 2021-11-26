@@ -1,9 +1,68 @@
-/* Split the screen in half */
-* {
-    margin: 0;
-    padding: 0;
-  }
-.imgBabybeef{
-    padding-top: 50px;
-    padding-left: 10px;
+body{
+    background-image: url("../images/pratoComVerede.png");
+    font-family: 'Lato', sans-serif;
+    background-size: 100%;
 }
+#image{
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-left: 15px;
+}
+#title span{
+    background-color: rgb(0, 0, 0, 0.7);
+    padding-right: 15px;
+    padding-left: 15px;
+    color: seashell;
+}
+#readyIN span{
+    background-color: rgb(0, 0, 0, 0.7);
+    color: seashell;
+    padding-right: 15px;
+    padding-left: 15px;
+    position: absolute;
+    left: 285px;
+
+}
+#serving span{
+    background-color: rgb(0, 0, 0, 0.5);
+    color: seashell;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+#summary{
+    font-family: 'Lato', sans-serif;
+    background-color: rgb(0, 0, 0, 0.5);
+    padding-left: 15px;
+    color: seashell;
+    font-size: 18px;
+    max-width: 580px;
+    
+    }
+#instructions{
+    background-color: rgb(0, 0, 0, 0.5);
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    color: seashell;
+    font-size: 25px;
+    position: absolute;
+    left: 585px;
+    top: 132px;
+    right: 20px;
+    max-width: 700px;
+}
+    #fisrtContainer span{
+        background-color: rgb(0, 0, 0, 0.5);
+    }
+    #button {
+        padding-top: 20px;
+        padding-left: 220px;
+    }
+    #container{
+    padding-top: 10px;
+    }
+
+    .img-heart{
+        width: 200px;
+    }
